@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import QRCode from 'qrcode.react';
+import { QRCodeSVG } from 'qrcode.react';
 
 export default function PerfilPage() {
     const {
@@ -154,7 +154,7 @@ export default function PerfilPage() {
                                     <div style={{ textAlign: 'center', marginBottom: 20 }}>
                                         <div className="family-code" style={{ display: 'inline-block', marginBottom: 16 }}>{displayCode}</div>
                                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                            <QRCode
+                                            <QRCodeSVG
                                                 value={`focusfamily://link/${displayCode}`}
                                                 size={150}
                                                 bgColor="transparent"
