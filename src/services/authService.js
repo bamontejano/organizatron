@@ -30,20 +30,21 @@ export async function registerUser(email, password, displayName, role) {
     let familyId = null;
     let linkCode = null;
 
-    // 3. If parent: create the family document (generates a linkCode)
+    // 3. Create user profile in Firestore first (with familyId = null initially)
+    await createUserProfile(user.uid, {
+        email,
+        displayName,
+        role,
+        familyId: null, // will be updated if it's a parent
+    });
+
+    // 4. If parent: create the family document
+    // (createFamily automatically updates the user's document with the new familyId)
     if (role === 'parent') {
         const family = await createFamily(user.uid, email, displayName);
         familyId = family.familyId;
         linkCode = family.linkCode;
     }
-
-    // 4. Create user profile in Firestore
-    await createUserProfile(user.uid, {
-        email,
-        displayName,
-        role,
-        familyId, // null for teen until they link
-    });
 
     return { user, familyId, linkCode };
 }
