@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
-import QRCode from 'qrcode.react';
+import { QRCodeSVG } from 'qrcode.react';
 
 const DIALOG_SUGGESTIONS = [
     { icon: '💬', text: '"¿Cómo te fue esta semana con los estudios? ¿Hubo algo que te costó más?"' },
@@ -81,7 +81,7 @@ export default function ParentDashboard() {
                     {displayCode ? (
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
                             <div style={{ background: 'white', padding: 14, borderRadius: 14 }}>
-                                <QRCode value={`focusfamily://link/${displayCode}`} size={130} />
+                                <QRCodeSVG value={`focusfamily://link/${displayCode}`} size={130} />
                             </div>
                             <div style={{ textAlign: 'center' }}>
                                 <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 8 }}>Código manual</div>
