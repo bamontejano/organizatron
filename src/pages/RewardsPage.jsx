@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 
-const REWARDS = [
-    { id: 1, emoji: '🎬', name: 'Noche de peli', desc: 'Eliges la película del viernes', cost: 80, cat: 'small', parent: 'Disponible' },
-    { id: 2, emoji: '📱', name: '+1h de móvil extra', desc: 'Una hora más de pantalla', cost: 60, cat: 'small', parent: 'Disponible' },
-    { id: 3, emoji: '🍕', name: 'Pizza para cenar', desc: 'Eliges la cena del sábado', cost: 120, cat: 'medium', parent: 'Disponible' },
-    { id: 4, emoji: '🏀', name: 'Excursión deportiva', desc: 'Tarde de deporte de tu elección', cost: 200, cat: 'medium', parent: 'Requiere pacto' },
-    { id: 5, emoji: '🎮', name: 'Torneo de videojuegos', desc: '3 horas de gaming sin límite', cost: 180, cat: 'medium', parent: 'Disponible' },
-    { id: 6, emoji: '✈️', name: 'Fin de semana especial', desc: 'Actividad family de elección', cost: 500, cat: 'big', parent: 'Requiere pacto' },
-];
+const REWARDS = [];
 
-const PARENT_REWARDS = [
-    { id: 7, emoji: '📚', name: 'Pagar libros extra', desc: 'Material extra de preparación', cost: 0, cat: 'small', note: 'Inversión educativa' },
-    { id: 8, emoji: '🏋️', name: 'Clases extraescolar', desc: 'Actividad de su elección', cost: 0, cat: 'medium', note: 'Actividad mensual' },
-];
+const PARENT_REWARDS = [];
 
 export default function RewardsPage() {
     const { focos, redeemReward, userRole } = useApp();

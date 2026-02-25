@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useApp } from '../context/AppContext';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 export default function PomodoroPage() {
     const { focos, addFocos, logSession } = useApp();
@@ -11,7 +11,7 @@ export default function PomodoroPage() {
     const [completed, setCompleted] = useState(0);
     const [sessionFocos, setSessionFocos] = useState(0);
     const [interruptions, setInterruptions] = useState(0);
-    const [subject, setSubject] = useState('📐 Matemáticas - Derivadas');
+    const [subject, setSubject] = useState('');
     const [emotion, setEmotion] = useState(null);
     const [interruptionLog, setInterruptionLog] = useState([]);
     const [showReward, setShowReward] = useState(false);
@@ -26,38 +26,7 @@ export default function PomodoroPage() {
     const mins = Math.floor(secondsLeft / 60);
     const secs = secondsLeft % 60;
 
-    useEffect(() => {
-        if (isRunning) {
-            intervalRef.current = setInterval(() => {
-                setSecondsLeft(prev => {
-                    if (prev <= 1) {
-                        clearInterval(intervalRef.current);
-                        setIsRunning(false);
-                        handleComplete();
-                        return 0;
-                    }
-                    return prev - 1;
-                });
-            }, 1000);
-        } else {
-            clearInterval(intervalRef.current);
-        }
-        return () => clearInterval(intervalRef.current);
-    }, [isRunning]);
-
-    // Detect interruptions (visibility change)
-    useEffect(() => {
-        const handleVisibility = () => {
-            if (document.hidden && isRunning) {
-                setInterruptions(p => p + 1);
-                setInterruptionLog(log => [...log, new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })]);
-            }
-        };
-        document.addEventListener('visibilitychange', handleVisibility);
-        return () => document.removeEventListener('visibilitychange', handleVisibility);
-    }, [isRunning]);
-
-    const handleComplete = async () => {
+    const handleComplete = useCallback(async () => {
         if (!isBreak) {
             // Recompensa aleatoria basada en el nivel de cumplimiento (interrupciones)
             let earned = 0;
@@ -96,7 +65,39 @@ export default function PomodoroPage() {
             setInterruptions(0);
             setInterruptionLog([]);
         }
-    };
+    }, [isBreak, interruptions, subject, logSession]);
+
+    useEffect(() => {
+        if (isRunning) {
+            intervalRef.current = setInterval(() => {
+                setSecondsLeft(prev => {
+                    if (prev <= 1) {
+                        clearInterval(intervalRef.current);
+                        setIsRunning(false);
+                        handleComplete();
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+        } else {
+            clearInterval(intervalRef.current);
+        }
+        return () => clearInterval(intervalRef.current);
+    }, [isRunning, handleComplete]);
+
+    // Detect interruptions (visibility change)
+    useEffect(() => {
+        const handleVisibility = () => {
+            if (document.hidden && isRunning) {
+                setInterruptions(p => p + 1);
+                setInterruptionLog(log => [...log, new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })]);
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisibility);
+        return () => document.removeEventListener('visibilitychange', handleVisibility);
+    }, [isRunning]);
+
 
     const toggleTimer = () => setIsRunning(p => !p);
 
@@ -108,13 +109,7 @@ export default function PomodoroPage() {
         setInterruptionLog([]);
     };
 
-    const subjects = [
-        '📐 Matemáticas - Derivadas',
-        '🔬 Física - Cinemática',
-        '📖 Historia - Revolución Industrial',
-        '🇬🇧 Inglés - Grammar',
-        '🎨 Lengua - Análisis sintáctico',
-    ];
+    // subjects removed
 
     const emotions = [
         { key: 'genial', emoji: '😊', label: 'Genial' },
@@ -189,14 +184,13 @@ export default function PomodoroPage() {
                         <div className="card-title">Configurar sesión</div>
                         <div style={{ marginBottom: 12 }}>
                             <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 6, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1 }}>MATERIA</div>
-                            <select
+                            <input
+                                type="text"
                                 value={subject}
                                 onChange={e => setSubject(e.target.value)}
                                 className="form-input"
-                                style={{ cursor: 'pointer' }}
-                            >
-                                {subjects.map(s => <option key={s}>{s}</option>)}
-                            </select>
+                                placeholder="Ej: Matemáticas - Derivadas"
+                            />
                         </div>
                     </div>
 

@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 
-const NOTIFICATIONS = [
-    { icon: '🔥', title: '¡Racha en peligro!', msg: 'Llevas 5 días seguidos. No rompas la racha hoy.', time: 'Hace 2h', type: 'warning' },
-    { icon: '📐', title: 'Examen en 3 días', msg: 'Recuerda repasar derivadas. Tu mejor hora es a las 16:30.', time: 'Hace 4h', type: 'exam' },
-    { icon: '💎', title: '¡Bloque perfecto!', msg: 'Estudio de Física sin interrupciones. +15 Focos ganados.', time: 'Ayer 17:30', type: 'success' },
-    { icon: '📈', title: 'Mejora detectada', msg: 'Esta semana estudias un 23% más que la semana pasada. ¡Bien!', time: 'Lun 17 Feb', type: 'info' },
-];
+const NOTIFICATIONS = [];
 
-const WEEKLY_ADVICE = [
-    { day: 'Hoy', icon: '💡', title: 'Empieza Matemáticas a las 16:30', desc: 'Tu franja con menos interrupciones históricamente.' },
-    { day: 'Ayer', icon: '⚠️', title: 'Patrón de fatiga detectado', desc: 'Los jueves rindes menos. Considera descansar antes del repaso.' },
-    { day: 'Mié', icon: '🏆', title: '¡Semana perfecta va!', desc: 'Si estudias hoy superas tu récord de bloques perfectos semanales.' },
-];
+const WEEKLY_ADVICE = [];
 
 const NOTIF_COLOR = {
     warning: 'rgba(245,158,11,0.1)',

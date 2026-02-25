@@ -1,22 +1,8 @@
 import React, { useState } from 'react';
 
-const RANKINGS = [
-    { pos: 1, name: 'María G.', level: 'Maestra', sessions: 28, focos: 420, avatar: '🌟', streak: 14, school: 'IES Rosalía' },
-    { pos: 2, name: 'Carlos M.', level: 'Experto', sessions: 24, focos: 380, avatar: '🏆', streak: 11, school: 'IES Rosalía' },
-    { pos: 3, name: 'Alejandro P.', level: 'Maestro', sessions: 22, focos: 350, avatar: '🎒', streak: 9, school: 'IES Rosalía', isMe: true },
-    { pos: 4, name: 'Laura S.', level: 'Constante', sessions: 18, focos: 290, avatar: '📚', streak: 8, school: 'IES Rosalía' },
-    { pos: 5, name: 'Javier R.', level: 'Constante', sessions: 16, focos: 260, avatar: '🔥', streak: 6, school: 'IES Rosalía' },
-    { pos: 6, name: 'Isabel F.', level: 'Explorador', sessions: 12, focos: 200, avatar: '💎', streak: 5, school: 'IES Lorca' },
-    { pos: 7, name: 'Miguel A.', level: 'Explorador', sessions: 10, focos: 180, avatar: '⭐', streak: 3, school: 'IES Lorca' },
-    { pos: 8, name: 'Ana L.', level: 'Inicio', sessions: 8, focos: 130, avatar: '🌱', streak: 2, school: 'IES Lorca' },
-];
+const RANKINGS = [];
 
-const SEASON_BADGES = [
-    { emoji: '❄️', name: 'Asistencia perfecta', desc: 'Estudia los 14 días', progress: 9, target: 14, earned: false },
-    { emoji: '⭐', name: 'Racha de temporada', desc: '7 días consecutivos', progress: 9, target: 7, earned: true },
-    { emoji: '🏆', name: 'Top 3', desc: 'Posición en el ranking', progress: 3, target: 3, earned: true },
-    { emoji: '💎', name: '100 Focos en temporada', desc: 'Objetivo de la temporada', progress: 350, target: 500, earned: false },
-];
+const SEASON_BADGES = [];
 
 const PODIUM_COLORS = ['rgba(245,158,11,0.15)', 'rgba(200,200,200,0.1)', 'rgba(180,100,50,0.1)'];
 const MEDAL = ['🥇', '🥈', '🥉'];

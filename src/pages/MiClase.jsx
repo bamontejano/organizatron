@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 
-const CLASS_CHALLENGES = [
-    { id: 1, emoji: '🔬', title: 'Reto Física', desc: 'La clase completa 50 Pomodoros esta semana', progress: 38, target: 50, daysLeft: 2, reward: 200 },
-    { id: 2, emoji: '📐', title: 'Cero Deudas', desc: 'Toda la clase entrega mates a tiempo', progress: 18, target: 22, daysLeft: 4, reward: 150 },
-];
+const CLASS_CHALLENGES = [];
 
-const CLASSMATES = [
-    { name: 'Carlos M.', avatar: '🏆', sessions: 24, streak: 11, status: 'online' },
-    { name: 'Laura S.', avatar: '📚', sessions: 18, streak: 8, status: 'study' },
-    { name: 'Javier R.', avatar: '🔥', sessions: 16, streak: 6, status: 'offline' },
-    { name: 'Isabel F.', avatar: '💎', sessions: 12, streak: 5, status: 'online' },
-    { name: 'Miguel A.', avatar: '⭐', sessions: 10, streak: 3, status: 'offline' },
-];
+const CLASSMATES = [];
 
 const STATUS_COLOR = { online: 'var(--accent3)', study: 'var(--focos)', offline: 'rgba(255,255,255,0.2)' };
 const STATUS_LABEL = { online: 'En línea', study: 'Estudiando ahora', offline: 'Desconectado' };

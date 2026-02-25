@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { QRCodeSVG } from 'qrcode.react';
 
-const DIALOG_SUGGESTIONS = [
-    { icon: '💬', text: '"¿Cómo te fue esta semana con los estudios? ¿Hubo algo que te costó más?"' },
-    { icon: '🤝', text: '"Hemos acordado el pacto de mates. ¿Hay algún tema en el que necesites ayuda extra?"' },
-    { icon: '🎉', text: '"Esta semana ganaste muchos Focos, ¿quieres celebrarlo este fin de semana?"' },
-];
+const DIALOG_SUGGESTIONS = [];
 
 export default function ParentDashboard() {
     const { profile, family, familyMembers, isLinked, linkCode, generateFamilyCode } = useApp();
@@ -68,7 +64,6 @@ export default function ParentDashboard() {
                         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                             <Link to="/pactos" className="btn btn-primary" style={{ fontSize: 13 }}>+ Nuevo pacto</Link>
                             <Link to="/ia" className="btn btn-ghost" style={{ fontSize: 13 }}>📊 Informes IA</Link>
-                            <Link to="/focos-solidarios" className="btn btn-ghost" style={{ fontSize: 13 }}>🫶 Focos Solidarios</Link>
                         </div>
                     </div>
                 ))
@@ -109,12 +104,18 @@ export default function ParentDashboard() {
                 <div className="card">
                     <div className="card-title">💬 Sugerencias de diálogo</div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                        {DIALOG_SUGGESTIONS.map((d, i) => (
-                            <div key={i} className="dialog-suggestion">
-                                <span className="dialog-icon">{d.icon}</span>
-                                <p className="dialog-text">{d.text}</p>
+                        {DIALOG_SUGGESTIONS.length === 0 ? (
+                            <div style={{ padding: 20, textAlign: 'center', color: 'var(--text-muted)', fontSize: 13 }}>
+                                No hay sugerencias de diálogo nuevas por ahora.
                             </div>
-                        ))}
+                        ) : (
+                            DIALOG_SUGGESTIONS.map((d, i) => (
+                                <div key={i} className="dialog-suggestion">
+                                    <span className="dialog-icon">{d.icon}</span>
+                                    <p className="dialog-text">{d.text}</p>
+                                </div>
+                            ))
+                        )}
                     </div>
                 </div>
             </div>

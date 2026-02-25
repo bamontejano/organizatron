@@ -23,7 +23,6 @@ import HeatmapPage from './pages/HeatmapPage';
 import Temporada from './pages/Temporada';
 import MiClase from './pages/MiClase';
 import ClassroomPage from './pages/ClassroomPage';
-import FocosSolidarios from './pages/FocosSolidarios';
 import RewardsPage from './pages/RewardsPage';
 import PerfilPage from './pages/PerfilPage';
 
@@ -88,7 +87,6 @@ function AppLayout() {
           <Route path="/temporada" element={<Temporada />} />
           <Route path="/clase" element={<MiClase />} />
           <Route path="/classroom" element={<ClassroomPage />} />
-          <Route path="/focos-solidarios" element={<FocosSolidarios />} />
           <Route path="/rewards" element={<RewardsPage />} />
           <Route path="/perfil" element={<PerfilPage />} />
           {/* Fallback */}

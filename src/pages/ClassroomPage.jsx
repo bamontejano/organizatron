@@ -1,21 +1,9 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 
-const CLASSROOM_TASKS = [
-    { id: 1, course: 'Matemáticas', teacher: 'Sra. García', title: 'Ejercicios derivadas (hoja 3)', due: 'Hoy, 23:59', points: 15, done: false, priority: 'alta' },
-    { id: 2, course: 'Física', teacher: 'Sr. Martín', title: 'Práctica cinemática — gráficas', due: 'Mañana, 12:00', points: 20, done: false, priority: 'alta' },
-    { id: 3, course: 'Historia', teacher: 'Sra. López', title: 'Resumen Rev. Industrial', due: 'Jue 27 Feb', points: 10, done: true, priority: 'media' },
-    { id: 4, course: 'Inglés', teacher: 'Mr. Williams', title: 'Essay — my future career', due: 'Vie 28 Feb', points: 25, done: false, priority: 'media' },
-    { id: 5, course: 'Lengua', teacher: 'Sr. Ruiz', title: 'Análisis sintáctico párrafo', due: 'Lun 3 Mar', points: 10, done: false, priority: 'baja' },
-];
+const CLASSROOM_TASKS = [];
 
-const SCHEDULE_TODAY = [
-    { time: '08:00', subject: 'Matemáticas', room: 'Aula 12', duration: 55, color: '#7c3aed' },
-    { time: '09:00', subject: 'Recreo', room: '', duration: 20, color: 'rgba(255,255,255,0.15)' },
-    { time: '09:20', subject: 'Física', room: 'Lab 2', duration: 55, color: '#10b981' },
-    { time: '10:20', subject: 'Historia', room: 'Aula 12', duration: 55, color: '#f59e0b' },
-    { time: '11:15', subject: 'Inglés', room: 'Aula 8', duration: 55, color: '#4285f4' },
-];
+const SCHEDULE_TODAY = [];
 
 const PRIORITY_COLOR = { alta: '#fb7185', media: 'var(--focos)', baja: 'var(--accent3)' };
 const COURSE_COLORS = { 'Matemáticas': '#7c3aed', 'Física': '#10b981', 'Historia': '#f59e0b', 'Inglés': '#4285f4', 'Lengua': '#f43f5e' };

@@ -1,25 +1,6 @@
 import React, { useState } from 'react';
 
-const ALL_BADGES = [
-    { emoji: '🥇', name: 'Primer Paso', desc: 'Primera sesión', cat: 'esfuerzo', earned: true },
-    { emoji: '📅', name: 'Semana Completa', desc: '7 días planificados', cat: 'esfuerzo', earned: true },
-    { emoji: '💎', name: 'Primer Diamante', desc: '1 bloque perfecto', cat: 'enfoque', earned: true },
-    { emoji: '🔥', name: 'Llama Inicial', desc: 'Racha de 3 días', cat: 'constancia', earned: true },
-    { emoji: '🤝', name: 'Primer Pacto', desc: 'Pacto cumplido', cat: 'familia', earned: true },
-    { emoji: '🧱', name: 'Muro de Acero', desc: '5 bloques perfectos', cat: 'enfoque', earned: true },
-    { emoji: '📐', name: 'Matemático', desc: '10h de mates', cat: 'esfuerzo', earned: true },
-    { emoji: '📆', name: '1 Semana', desc: 'Racha 7 días', cat: 'constancia', earned: true },
-    { emoji: '🏡', name: 'Familia Unida', desc: '3 pactos cumplidos', cat: 'familia', earned: true },
-    { emoji: '⭐', name: 'Explorador', desc: 'Nivel 2 alcanzado', cat: 'esfuerzo', earned: true },
-    { emoji: '🏰', name: 'Fortaleza', desc: '10 bloques perfectos', cat: 'enfoque', earned: true },
-    { emoji: '📖', name: 'Curioso', desc: '5 técnicas vistas', cat: 'esfuerzo', earned: true },
-    { emoji: '🌙', name: '1 Mes', desc: 'Racha 30 días', cat: 'constancia', earned: false },
-    { emoji: '⚔️', name: 'Invencible', desc: '20 bloques perfectos', cat: 'enfoque', earned: false },
-    { emoji: '🏅', name: 'Negociador', desc: '5 pactos cumplidos', cat: 'familia', earned: false },
-    { emoji: '🚀', name: 'Maestro', desc: 'Nivel 5 alcanzado', cat: 'esfuerzo', earned: false },
-    { emoji: '💫', name: 'Trimestre', desc: '90 días de racha', cat: 'constancia', earned: false },
-    { emoji: '👑', name: 'Leyenda', desc: '50 bloques perfectos', cat: 'enfoque', earned: false },
-];
+const ALL_BADGES = [];
 
 const TABS = ['todas', 'esfuerzo', 'enfoque', 'constancia', 'familia'];
 const TAB_LABELS = { todas: 'Todas', esfuerzo: 'Esfuerzo', enfoque: 'Enfoque', constancia: 'Constancia', familia: 'Familia' };

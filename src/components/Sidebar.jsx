@@ -24,7 +24,6 @@ const NAV_TEEN = [
         items: [
             { to: '/pactos', icon: '🤝', label: 'Pactos', id: 'pactos', badge: 1 },
             { to: '/rewards', icon: '🎁', label: 'Recompensas', id: 'rewards' },
-            { to: '/focos-solidarios', icon: '🫶', label: 'Focos Solidarios', id: 'focos-solidarios' },
         ]
     },
     {
@@ -62,7 +61,6 @@ const NAV_PARENT = [
     {
         label: 'Familia',
         items: [
-            { to: '/focos-solidarios', icon: '🫶', label: 'Focos Solidarios', id: 'focos-solidarios' },
             { to: '/perfil', icon: '👨‍👩‍👦', label: 'Mi Familia', id: 'familia' },
         ]
     },

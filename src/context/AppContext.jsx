@@ -232,15 +232,11 @@ export function AppProvider({ children }) {
     // ── Classroom (Mock Sync) ──────────────────────────────────────────────────
     const syncClassroom = useCallback(async () => {
         setIsClassroomLinked(true);
-        const mockTasks = [
-            { id: 'c1', title: 'Ensayo Revolución Industrial', course: 'Historia', dueDate: 'Mañana', points: 25 },
-            { id: 'c2', title: 'Ejercicios de Matrices', course: 'Matemáticas', dueDate: 'Viernes', points: 15 },
-        ];
+        const mockTasks = [];
         setClassroomTasks(mockTasks);
         if (authUser) {
             const newBlocks = [
-                ...blocks,
-                { id: 'cb1', day: 'Miércoles', startTime: '16:00', endTime: '17:30', subject: 'Historia', type: 'study', task: 'Classroom: Ensayo', isClassroom: true }
+                ...blocks
             ];
             await saveBlocks(authUser.uid, newBlocks);
         }

@@ -2,21 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 
-const RACHA_WEEK = [
-    { emoji: '✅', perfect: true, done: true },
-    { emoji: '✅', perfect: false, done: true },
-    { emoji: '💎', perfect: true, done: true },
-    { emoji: '✅', perfect: false, done: true },
-    { emoji: '✅', perfect: true, done: true },
-    { emoji: '😴', perfect: false, done: false },
-    { emoji: '🎯', perfect: false, done: false, today: true },
-];
+const RACHA_WEEK = [];
 
-const MISSIONS = [
-    { emoji: '📐', title: 'Hoja de derivadas', subject: 'Matemáticas', xp: 15, done: false, priority: 'alta' },
-    { emoji: '🔬', title: 'Informe de laboratorio', subject: 'Física', xp: 20, done: false, priority: 'alta' },
-    { emoji: '📖', title: 'Lectura capítulo 7', subject: 'Historia', xp: 10, done: true, priority: 'media' },
-];
+const MISSIONS = [];
 
 export default function TeenDashboard() {
     const {

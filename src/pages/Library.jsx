@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 
-const TECHNIQUES = [
-    { emoji: '🍅', title: 'Pomodoro', difficulty: 'Fácil', focos: 10, desc: '25 minutos de enfoque total seguidos de 5 min de descanso. Acumula 4 y descansa 20 min.', tag: 'Concentración' },
-    { emoji: '🧠', title: 'Feynman', difficulty: 'Media', focos: 20, desc: 'Explica el tema como si se lo contaras a un niño de 12 años. Si no puedes, no lo has entendido.', tag: 'Comprensión' },
-    { emoji: '🃏', title: 'Flashcards', difficulty: 'Fácil', focos: 15, desc: 'Tarjetas de pregunta-respuesta con repetición espaciada. Ideal para vocabulario y fechas.', tag: 'Memorización' },
-    { emoji: '🗺️', title: 'Mapas mentales', difficulty: 'Media', focos: 18, desc: 'Conecta ideas visualmente partiendo del concepto central. Activa ambos hemisferios cerebrales.', tag: 'Comprensión' },
-    { emoji: '📝', title: 'Active Recall', difficulty: 'Media', focos: 22, desc: 'Cierra el libro y escribe todo lo que recuerdas. Más efectivo que reler para la retención.', tag: 'Memorización' },
-    { emoji: '🔄', title: 'Spaced Repetition', difficulty: 'Difícil', focos: 30, desc: 'Repasa el material a intervalos crecientes (1d, 3d, 7d, 21d). Vence el olvido exponencial.', tag: 'Memorización' },
-    { emoji: '🎯', title: 'Cornell Notes', difficulty: 'Fácil', focos: 12, desc: 'Divide la hoja en 3 zonas: notas, preguntas y resumen. Sistema usado en Harvard.', tag: 'Organización' },
-    { emoji: '🌊', title: 'Método Flow', difficulty: 'Difícil', focos: 35, desc: 'Entra en estado de flujo total: sin notificaciones, una sola tarea, metas claras y progresivas.', tag: 'Concentración' },
-];
+const TECHNIQUES = [];
 
 const DIFF_COLOR = { 'Fácil': 'var(--accent3)', 'Media': 'var(--focos)', 'Difícil': '#fb7185' };
 const DIFF_BG = { 'Fácil': 'rgba(16,185,129,0.12)', 'Media': 'rgba(245,158,11,0.12)', 'Difícil': 'rgba(244,63,94,0.1)' };

@@ -8,6 +8,11 @@ export default function StudyMode({ task, onClose, onFinish }) {
     const [isActive, setIsActive] = useState(false);
     const { addFocos } = useApp();
 
+    const handleFinished = () => {
+        addFocos(15); // Perfect block reward
+        if (onFinish) onFinish();
+    };
+
     useEffect(() => {
         let interval = null;
         if (isActive && timeLeft > 0) {
@@ -21,11 +26,6 @@ export default function StudyMode({ task, onClose, onFinish }) {
         }
         return () => clearInterval(interval);
     }, [isActive, timeLeft]);
-
-    const handleFinished = () => {
-        addFocos(15); // Perfect block reward
-        if (onFinish) onFinish();
-    };
 
     const formatTime = (seconds) => {
         const mins = Math.floor(seconds / 60);
